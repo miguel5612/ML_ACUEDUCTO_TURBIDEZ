@@ -105,7 +105,7 @@ input:checked + .slider:before {
     cursor: pointer;
 }
 </style>
-    <body>
+    <body style="background-color:lightgray">
         <br><br><br>    
         <div>
                 <label class="switch" style="left:35%; top:5%;">
@@ -117,39 +117,39 @@ input:checked + .slider:before {
         <br>
         <div class="container">
         <div class="row">
-            <div class="col">
-                    <div id="chart_div" style="width: 400px; height: 120px;"></div>
-                    <div id="chart_div_div" style="width: 400px; height: 120px;"></div>
+            <div style="background-color: lightseagreen" class="col-md-3">
+                    <div id="chart_div" style="width: 500px; height: 120px;"></div>
+                    <div id="chart_div_div" style="width: 500px; height: 120px;"></div>
             </div>
-            <div class="col">
-                    <div id="chart_div2" style="width: 400px; height: 120px;"></div>
-                    <div id="chart_div2_2" style="width: 400px; height: 120px;"></div>
+            <div style="background-color: lightseagreen" class="col-md-3">
+                    <div id="chart_div2" style="width: 500px; height: 120px;"></div>
+                    <div id="chart_div2_2" style="width: 500px; height: 120px;"></div>
             </div>
-            <div class="col">
-                    <div id="chart_div3" style="width: 400px; height: 120px;"></div>
-                    <div id="chart_div3_3" style="width: 400px; height: 120px;"></div>
+            <div style="background-color: lightseagreen" class="col-md-3">
+                    <div id="chart_div3" style="width: 500px; height: 120px;"></div>
+                    <div id="chart_div3_3" style="width: 500px; height: 120px;"></div>
             </div>
-            <div class="col">
-                    <div id="chart_div4" style="width: 400px; height: 120px;"></div>
-                    <div id="chart_div4_4" style="width: 400px; height: 120px;"></div>
+            <div style="background-color: lightseagreen" class="col-md-3">
+                    <div id="chart_div4" style="width: 500px; height: 120px;"></div>
+                    <div id="chart_div4_4" style="width: 500px; height: 120px;"></div>
             </div>
         </div>
         <div class="row">
-            <div class="col">
-                    <div id="chart_div5" style="width: 400px; height: 120px;"></div>
-                    <div id="chart_div5_5" style="width: 400px; height: 120px;"></div>
+            <div style="background-color:lightsalmon" class="col-md-3">
+                    <div id="chart_div5" style="width: 500px; height: 120px;"></div>
+                    <div id="chart_div5_5" style="width: 500px; height: 120px;"></div>
             </div>
-            <div class="col">
-                    <div id="chart_div6" style="width: 400px; height: 120px;"></div>
-                    <div id="chart_div6_6" style="width: 400px; height: 120px;"></div>
+            <div style="background-color:lightsalmon" class="col-md-3">
+                    <div id="chart_div6" style="width: 500px; height: 120px;"></div>
+                    <div id="chart_div6_6" style="width: 500px; height: 120px;"></div>
             </div>
-            <div class="col">
-                    <div id="chart_div7" style="width: 400px; height: 120px;"></div>
-                    <div id="chart_div7_7" style="width: 400px; height: 120px;"></div>
+            <div style="background-color:lightsalmon" class="col-md-3">
+                    <div id="chart_div7" style="width: 500px; height: 120px;"></div>
+                    <div id="chart_div7_7" style="width: 500px; height: 120px;"></div>
             </div>
-            <div class="col">
-                    <div id="chart_div8" style="width: 400px; height: 120px;"></div>
-                    <div id="chart_div8_8" style="width: 400px; height: 120px;"></div>
+            <div style="background-color:lightsalmon" class="col-md-3">
+                    <div id="chart_div8" style="width: 500px; height: 120px;"></div>
+                    <div id="chart_div8_8" style="width: 500px; height: 120px;"></div>
             </div>
         </div>
       </div>  
@@ -215,8 +215,8 @@ input:checked + .slider:before {
            }, 1000);
          
            //Chart 3
-           var chart5 = new google.visualization.Gauge(document.getElementById('chart_div2'));
-           var chart6 = new google.visualization.Gauge(document.getElementById('chart_div2_2'));
+           var chart5 = new google.visualization.Gauge(document.getElementById('chart_div3'));
+           var chart6 = new google.visualization.Gauge(document.getElementById('chart_div3_3'));
    
            chart5.draw(data, options1);
            chart6.draw(data2, options2);
@@ -229,6 +229,87 @@ input:checked + .slider:before {
              data2.setValue(0, 1, 1 + Math.round(1950 * Math.random()));
              chart6.draw(data2, options2);
            }, 1000);
+         
+           //Chart 4
+           var chart7 = new google.visualization.Gauge(document.getElementById('chart_div4'));
+           var chart8 = new google.visualization.Gauge(document.getElementById('chart_div4_4'));
+   
+           chart7.draw(data, options1);
+           chart8.draw(data2, options2);
+   
+           setInterval(function() {   
+             data.setValue(0, 1, randomIntFromInterval(0,1));
+             chart7.draw(data, options1);
+           }, 1000);
+           setInterval(function() {
+             data2.setValue(0, 1, 1 + Math.round(1950 * Math.random()));
+             chart8.draw(data2, options2);
+           }, 1000);
+
+           //Chart 5
+           var chart9 = new google.visualization.Gauge(document.getElementById('chart_div5'));
+           var chart10 = new google.visualization.Gauge(document.getElementById('chart_div5_5'));
+   
+           chart9.draw(data, options1);
+           chart10.draw(data2, options2);
+   
+           setInterval(function() {   
+             data.setValue(0, 1, randomIntFromInterval(0,1));
+             chart9.draw(data, options1);
+           }, 1000);
+           setInterval(function() {
+             data2.setValue(0, 1, 1 + Math.round(1950 * Math.random()));
+             chart10.draw(data2, options2);
+           }, 1000);
+         
+           //Chart 6
+           var chart10 = new google.visualization.Gauge(document.getElementById('chart_div6'));
+           var chart11 = new google.visualization.Gauge(document.getElementById('chart_div6_6'));
+   
+           chart10.draw(data, options1);
+           chart11.draw(data2, options2);
+   
+           setInterval(function() {   
+             data.setValue(0, 1, randomIntFromInterval(0,1));
+             chart10.draw(data, options1);
+           }, 1000);
+           setInterval(function() {
+             data2.setValue(0, 1, 1 + Math.round(1950 * Math.random()));
+             chart11.draw(data2, options2);
+           }, 1000);
+         
+         //Chart 7
+         var chart12 = new google.visualization.Gauge(document.getElementById('chart_div7'));
+           var chart13 = new google.visualization.Gauge(document.getElementById('chart_div7_7'));
+   
+           chart12.draw(data, options1);
+           chart13.draw(data2, options2);
+   
+           setInterval(function() {   
+             data.setValue(0, 1, randomIntFromInterval(0,1));
+             chart12.draw(data, options1);
+           }, 1000);
+           setInterval(function() {
+             data2.setValue(0, 1, 1 + Math.round(1950 * Math.random()));
+             chart13.draw(data2, options2);
+           }, 1000);
+         
+            //Chart 8
+            var chart13 = new google.visualization.Gauge(document.getElementById('chart_div8'));
+           var chart14 = new google.visualization.Gauge(document.getElementById('chart_div8_8'));
+   
+           chart13.draw(data, options1);
+           chart14.draw(data2, options2);
+   
+           setInterval(function() {   
+             data.setValue(0, 1, randomIntFromInterval(0,1));
+             chart13.draw(data, options1);
+           }, 1000);
+           setInterval(function() {
+             data2.setValue(0, 1, 1 + Math.round(1950 * Math.random()));
+             chart14.draw(data2, options2);
+           }, 1000);
+         
          
          }
 
