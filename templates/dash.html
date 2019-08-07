@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tests</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<style>
+.ques {
+    color: darkslateblue;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 260px;
+  height: 100px;
+}
+
+.switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #f2f2f2;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  z-index: 2;
+  content: "";
+  height: 96px;
+  width: 96px;
+  left: 2px;
+  bottom: 2px;
+  background-color: darkslategrey;
+      -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.22);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.22);
+  -webkit-transition: .4s;
+  transition: all 0.4s ease-in-out;
+}
+.slider:after {
+  position: absolute;
+  left: 0;
+  z-index: 1;
+  content: "AUTOMATICO";
+    font-size: 20px;
+    text-align: left !important;
+    line-height: 95px;
+  padding-left: 0;
+    width: 260px;
+    color: #fff;
+    height: 100px;
+    border-radius: 100px;
+    background-color: #ff6418;
+    -webkit-transform: translateX(-160px);
+    -ms-transform: translateX(-160px);
+    transform: translateX(-160px);
+    transition: all 0.4s ease-in-out;
+}
+
+input:checked + .slider:after {
+  -webkit-transform: translateX(0px);
+  -ms-transform: translateX(0px);
+  transform: translateX(0px);
+  /*width: 235px;*/
+  padding-left: 25px;
+}
+
+input:checked + .slider:before {
+  background-color: #fff;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(160px);
+  -ms-transform: translateX(160px);
+  transform: translateX(160px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 100px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+.absolute-no {
+	position: absolute;
+	left: 0;
+	color: darkslategrey;
+	text-align: right !important;
+    font-size: 25px;
+    width: calc(100% - 25px);
+    height: 100px;
+    line-height: 95px;
+    cursor: pointer;
+}
+</style>
+    <body>
+        <br><br><br>    
+        <div>
+                <label class="switch" style="left:35%; top:5%;">
+                    <input type="checkbox" checked>
+                    <span class="slider round"></span>
+                    <span class="absolute-no">MANUAL</span>
+                </label>
+        </div>
+        <br>
+        <div class="container">
+        <div class="row">
+            <div class="col">
+                    <div id="chart_div" style="width: 400px; height: 120px;"></div>
+                    <div id="chart_div_div" style="width: 400px; height: 120px;"></div>
+            </div>
+            <div class="col">
+                    <div id="chart_div2" style="width: 400px; height: 120px;"></div>
+                    <div id="chart_div2_2" style="width: 400px; height: 120px;"></div>
+            </div>
+            <div class="col">
+                    <div id="chart_div3" style="width: 400px; height: 120px;"></div>
+                    <div id="chart_div3_3" style="width: 400px; height: 120px;"></div>
+            </div>
+            <div class="col">
+                    <div id="chart_div4" style="width: 400px; height: 120px;"></div>
+                    <div id="chart_div4_4" style="width: 400px; height: 120px;"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                    <div id="chart_div5" style="width: 400px; height: 120px;"></div>
+                    <div id="chart_div5_5" style="width: 400px; height: 120px;"></div>
+            </div>
+            <div class="col">
+                    <div id="chart_div6" style="width: 400px; height: 120px;"></div>
+                    <div id="chart_div6_6" style="width: 400px; height: 120px;"></div>
+            </div>
+            <div class="col">
+                    <div id="chart_div7" style="width: 400px; height: 120px;"></div>
+                    <div id="chart_div7_7" style="width: 400px; height: 120px;"></div>
+            </div>
+            <div class="col">
+                    <div id="chart_div8" style="width: 400px; height: 120px;"></div>
+                    <div id="chart_div8_8" style="width: 400px; height: 120px;"></div>
+            </div>
+        </div>
+      </div>  
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+      <script type="text/javascript">
+         google.charts.load('current', {'packages':['gauge']});
+         google.charts.setOnLoadCallback(drawChart);
+   
+         function drawChart() {
+   
+           var data = google.visualization.arrayToDataTable([
+             ['Label', 'Value'],
+             ['Turbidez', 1]
+           ]);
+           var data2 = google.visualization.arrayToDataTable([
+             ['Label', 'Value'],
+             ['RPM', 2000]
+           ]);
+   
+           var options1 = {
+             width: 400, height: 120,
+             redFrom: 0.7, redTo: 1,
+             yellowFrom:0.49, yellowTo: 0.69,
+             minorTicks: 5, max:1
+           };
+           var options2 = {
+             width: 400, height: 120,
+             redFrom: 1930, redTo: 1950,
+             yellowFrom:1000, yellowTo: 1930,
+             minorTicks: 5, max:2000
+           };
+   
+           var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
+           var chart2 = new google.visualization.Gauge(document.getElementById('chart_div_div'));
+   
+           chart.draw(data, options1);
+           chart2.draw(data2, options2);
+   
+           setInterval(function() {   
+             data.setValue(0, 1, randomIntFromInterval(0,1));
+             chart.draw(data, options1);
+           }, 1000);
+           setInterval(function() {
+             data2.setValue(0, 1, 1 + Math.round(1950 * Math.random()));
+             chart2.draw(data2, options2);
+           }, 1000);
+
+
+           //Chart 2
+           var chart3 = new google.visualization.Gauge(document.getElementById('chart_div2'));
+           var chart4 = new google.visualization.Gauge(document.getElementById('chart_div2_2'));
+   
+           chart3.draw(data, options1);
+           chart4.draw(data2, options2);
+   
+           setInterval(function() {   
+             data.setValue(0, 1, randomIntFromInterval(0,1));
+             chart3.draw(data, options1);
+           }, 1000);
+           setInterval(function() {
+             data2.setValue(0, 1, 1 + Math.round(1950 * Math.random()));
+             chart4.draw(data2, options2);
+           }, 1000);
+         
+           //Chart 3
+           var chart5 = new google.visualization.Gauge(document.getElementById('chart_div2'));
+           var chart6 = new google.visualization.Gauge(document.getElementById('chart_div2_2'));
+   
+           chart5.draw(data, options1);
+           chart6.draw(data2, options2);
+   
+           setInterval(function() {   
+             data.setValue(0, 1, randomIntFromInterval(0,1));
+             chart5.draw(data, options1);
+           }, 1000);
+           setInterval(function() {
+             data2.setValue(0, 1, 1 + Math.round(1950 * Math.random()));
+             chart6.draw(data2, options2);
+           }, 1000);
+         
+         }
+
+         
+       </script>
+       <script>
+       function randomIntFromInterval(min, max) { // min and max included 
+        return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+    </script>
+    </body>
+</html>
