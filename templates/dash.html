@@ -105,59 +105,190 @@ input:checked + .slider:before {
     cursor: pointer;
 }
 </style>
+<style>
+.vertical-tabs .nav-tabs .nav-link{
+    border-radius: 0;
+    background:#c10101;
+    text-align:center;
+    font-size: 16px;
+    border:1px solid #424242;
+    color:#fff;
+    height:40px;
+    width: 120px;
+}
+ .vertical-tabs .nav-tabs .nav-link.active{
+    background-color:#700000!important;
+    color:#fff;
+}
+ .vertical-tabs .tab-content>.active{
+    background:#fff;
+    display:block;
+}
+ .vertical-tabs .nav.nav-tabs{
+    border-bottom:0;
+    border-right:3px solid #000;
+    display:block;
+    float:left;
+    margin-right:20px;
+    padding-right:15px;
+}
+ .vertical-tabs .sv-tab-panel{
+    background:#fff;
+    height:50%;
+    padding-top:2%;
+}
+@media only screen and (max-width: 420px){
+  .titulo{font-size: 22px}
+}
+@media only screen and (max-width: 325px){
+  .vertical-tabs{ padding:8px;}
+}
+footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    color:#fff;
+    font-size: 9px;
+}
+
+</style>
     <body style="background-color:lightgray">
-        <br><br><br>    
+      
+      <br><br><br>    
         <div>
                 <label class="switch" style="left:35%; top:5%;">
-                    <input type="checkbox" checked>
+                    <input id="chkAuto"  onchange="toggleCheckbox(this)" type="checkbox" checked>
                     <span class="slider round"></span>
                     <span class="absolute-no">MANUAL</span>
                 </label>
         </div>
         <br>
-        <div class="container">
-        <div class="row">
-            <div style="background-color: lightseagreen" class="col-md-3">
-                    <div id="chart_div" style="width: 500px; height: 120px;"></div>
-                    <div id="chart_div_div" style="width: 500px; height: 120px;"></div>
+      <!--nav-->  
+      <div class="container">
+        <div class="vertical-tabs">
+          <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="tab" href="#pag1" role="tab" aria-controls="home">Tablero 1</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#pag1" role="tab" aria-controls="profile">Tablero 2</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#pag1" role="tab" aria-controls="messages">Tablero 3</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#pag1" role="tab" aria-controls="settings">Tablero 4</a>
+            </li>
+    
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#pag1" role="tab" aria-controls="settings">Tablero 5</a>
+            </li>
+    
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#pag1" role="tab" aria-controls="settings">Tablero 6</a>
+            </li>
+    
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#pag1" role="tab" aria-controls="settings">Página 7</a>
+            </li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="pag1" role="tabpanel">
+              <div class="sv-tab-panel">
+                <div class="container">
+                  <div class="row">
+                      <div style="background-color: lightseagreen" class="col-md-3">
+                              <div id="chart_div" style="width: 500px; height: 120px;"></div>
+                              <div id="chart_div_div" style="width: 500px; height: 120px;"></div>
+                      </div>
+                      <div style="background-color: lightseagreen" class="col-md-3">
+                              <div id="chart_div2" style="width: 500px; height: 120px;"></div>
+                              <div id="chart_div2_2" style="width: 500px; height: 120px;"></div>
+                      </div>
+                      <div style="background-color: lightseagreen" class="col-md-3">
+                              <div id="chart_div3" style="width: 500px; height: 120px;"></div>
+                              <div id="chart_div3_3" style="width: 500px; height: 120px;"></div>
+                      </div>
+                      <div style="background-color: lightseagreen" class="col-md-3">
+                              <div id="chart_div4" style="width: 500px; height: 120px;"></div>
+                              <div id="chart_div4_4" style="width: 500px; height: 120px;"></div>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div style="background-color:lightsalmon" class="col-md-3">
+                              <div id="chart_div5" style="width: 500px; height: 120px;"></div>
+                              <div id="chart_div5_5" style="width: 500px; height: 120px;"></div>
+                      </div>
+                      <div style="background-color:lightsalmon" class="col-md-3">
+                              <div id="chart_div6" style="width: 500px; height: 120px;"></div>
+                              <div id="chart_div6_6" style="width: 500px; height: 120px;"></div>
+                      </div>
+                      <div style="background-color:lightsalmon" class="col-md-3">
+                              <div id="chart_div7" style="width: 500px; height: 120px;"></div>
+                              <div id="chart_div7_7" style="width: 500px; height: 120px;"></div>
+                      </div>
+                      <div style="background-color:lightsalmon" class="col-md-3">
+                              <div id="chart_div8" style="width: 500px; height: 120px;"></div>
+                              <div id="chart_div8_8" style="width: 500px; height: 120px;"></div>
+                      </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div style="background-color: lightseagreen" class="col-md-3">
-                    <div id="chart_div2" style="width: 500px; height: 120px;"></div>
-                    <div id="chart_div2_2" style="width: 500px; height: 120px;"></div>
+            <div class="tab-pane" id="pag2" role="tabpanel">
+              <div class="sv-tab-panel">
+                <h3>TAB 2</h3>
+                <p>CONTEUDO 2</p>
+              </div>
             </div>
-            <div style="background-color: lightseagreen" class="col-md-3">
-                    <div id="chart_div3" style="width: 500px; height: 120px;"></div>
-                    <div id="chart_div3_3" style="width: 500px; height: 120px;"></div>
+            <div class="tab-pane" id="pag3" role="tabpanel">
+              <div class="sv-tab-panel">
+                <h3>TAB 3</h3>
+                <p>CONTEUDO 3</p>
+              </div>
             </div>
-            <div style="background-color: lightseagreen" class="col-md-3">
-                    <div id="chart_div4" style="width: 500px; height: 120px;"></div>
-                    <div id="chart_div4_4" style="width: 500px; height: 120px;"></div>
+            <div class="tab-pane" id="pag4" role="tabpanel">
+              <div class="sv-tab-panel">
+               <h3>TAB 4</h3>
+                <p>CONTEUDO 4</p>
+              </div>
             </div>
+    
+            <div class="tab-pane" id="pag5" role="tabpanel">
+              <div class="sv-tab-panel">
+                <h3>TAB 5</h3>
+                <p>CONTEUDO 5</p>
+              </div>
+            </div>
+    
+            <div class="tab-pane" id="pag6" role="tabpanel">
+              <div class="sv-tab-panel">
+                <h3>TAB 6</h3>
+                <p>CONTEUDO 6</p>
+              </div>
+            </div>
+    
+            <div class="tab-pane" id="pag7" role="tabpanel">
+              <div class="sv-tab-panel">
+                <h3>TAB 7</h3>
+                <p>CONTEUDO 7</p>
+              </div>
+            </div>
+    
+          </div>
         </div>
-        <div class="row">
-            <div style="background-color:lightsalmon" class="col-md-3">
-                    <div id="chart_div5" style="width: 500px; height: 120px;"></div>
-                    <div id="chart_div5_5" style="width: 500px; height: 120px;"></div>
-            </div>
-            <div style="background-color:lightsalmon" class="col-md-3">
-                    <div id="chart_div6" style="width: 500px; height: 120px;"></div>
-                    <div id="chart_div6_6" style="width: 500px; height: 120px;"></div>
-            </div>
-            <div style="background-color:lightsalmon" class="col-md-3">
-                    <div id="chart_div7" style="width: 500px; height: 120px;"></div>
-                    <div id="chart_div7_7" style="width: 500px; height: 120px;"></div>
-            </div>
-            <div style="background-color:lightsalmon" class="col-md-3">
-                    <div id="chart_div8" style="width: 500px; height: 120px;"></div>
-                    <div id="chart_div8_8" style="width: 500px; height: 120px;"></div>
-            </div>
-        </div>
-      </div>  
+      </div>    
+      <!--end nav-->
+          
       <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
       <script type="text/javascript">
          google.charts.load('current', {'packages':['gauge']});
          google.charts.setOnLoadCallback(drawChart);
-   
+        
+        var m = 1900;
+        var b = 0;
+
          function drawChart() {
    
            var data = google.visualization.arrayToDataTable([
@@ -189,14 +320,16 @@ input:checked + .slider:before {
            chart2.draw(data2, options2);
    
            setInterval(function() {   
-             data.setValue(0, 1, randomIntFromInterval(0,1));
-             chart.draw(data, options1);
-           }, 1000);
-           setInterval(function() {
-             data2.setValue(0, 1, 1 + Math.round(1950 * Math.random()));
-             chart2.draw(data2, options2);
-           }, 1000);
+             if($("#chkAuto").prop("checked")){ 
+               var turbidez = randomIntFromInterval(0,1);
+               velocidad = m*turbidez + b;
+                data.setValue(0, 1, turbidez);
+                data2.setValue(0, 1, velocidad);
 
+                chart.draw(data, options1);
+                chart2.draw(data2, options2);
+             }
+           }, 1000);
 
            //Chart 2
            var chart3 = new google.visualization.Gauge(document.getElementById('chart_div2'));
@@ -206,12 +339,16 @@ input:checked + .slider:before {
            chart4.draw(data2, options2);
    
            setInterval(function() {   
-             data.setValue(0, 1, randomIntFromInterval(0,1));
-             chart3.draw(data, options1);
-           }, 1000);
-           setInterval(function() {
-             data2.setValue(0, 1, 1 + Math.round(1950 * Math.random()));
-             chart4.draw(data2, options2);
+             if($("#chkAuto").prop("checked")){
+              
+              var turbidez = randomIntFromInterval(0,1);
+               velocidad = m*turbidez + b;
+                data.setValue(0, 1, turbidez);
+                data2.setValue(0, 1, velocidad);
+
+                chart3.draw(data, options1);
+                chart4.draw(data2, options2);
+             }
            }, 1000);
          
            //Chart 3
@@ -222,14 +359,19 @@ input:checked + .slider:before {
            chart6.draw(data2, options2);
    
            setInterval(function() {   
-             data.setValue(0, 1, randomIntFromInterval(0,1));
-             chart5.draw(data, options1);
+             if($("#chkAuto").prop("checked"))
+             {
+              
+              var turbidez = randomIntFromInterval(0,1);
+               velocidad = m*turbidez + b;
+                data.setValue(0, 1, turbidez);
+                data2.setValue(0, 1, velocidad);
+
+                chart5.draw(data, options1);
+                chart6.draw(data2, options2);
+             }
            }, 1000);
-           setInterval(function() {
-             data2.setValue(0, 1, 1 + Math.round(1950 * Math.random()));
-             chart6.draw(data2, options2);
-           }, 1000);
-         
+
            //Chart 4
            var chart7 = new google.visualization.Gauge(document.getElementById('chart_div4'));
            var chart8 = new google.visualization.Gauge(document.getElementById('chart_div4_4'));
@@ -238,12 +380,17 @@ input:checked + .slider:before {
            chart8.draw(data2, options2);
    
            setInterval(function() {   
-             data.setValue(0, 1, randomIntFromInterval(0,1));
-             chart7.draw(data, options1);
-           }, 1000);
-           setInterval(function() {
-             data2.setValue(0, 1, 1 + Math.round(1950 * Math.random()));
-             chart8.draw(data2, options2);
+             if($("#chkAuto").prop("checked"))
+             {
+              
+              var turbidez = randomIntFromInterval(0,1);
+               velocidad = m*turbidez + b;
+                data.setValue(0, 1, turbidez);
+                data2.setValue(0, 1, velocidad);
+
+                chart7.draw(data, options1);
+                chart8.draw(data2, options2);
+             }
            }, 1000);
 
            //Chart 5
@@ -254,60 +401,80 @@ input:checked + .slider:before {
            chart10.draw(data2, options2);
    
            setInterval(function() {   
-             data.setValue(0, 1, randomIntFromInterval(0,1));
-             chart9.draw(data, options1);
-           }, 1000);
-           setInterval(function() {
-             data2.setValue(0, 1, 1 + Math.round(1950 * Math.random()));
-             chart10.draw(data2, options2);
+             if($("#chkAuto").prop("checked"))
+             {
+              
+              var turbidez = randomIntFromInterval(0,1);
+               velocidad = m*turbidez + b;
+                data.setValue(0, 1, turbidez);
+                data2.setValue(0, 1, velocidad);
+
+                chart9.draw(data, options1);
+                chart10.draw(data2, options2);
+             }
            }, 1000);
          
            //Chart 6
-           var chart10 = new google.visualization.Gauge(document.getElementById('chart_div6'));
-           var chart11 = new google.visualization.Gauge(document.getElementById('chart_div6_6'));
+           var chart11 = new google.visualization.Gauge(document.getElementById('chart_div6'));
+           var chart12 = new google.visualization.Gauge(document.getElementById('chart_div6_6'));
    
-           chart10.draw(data, options1);
-           chart11.draw(data2, options2);
+           chart11.draw(data, options1);
+           chart12.draw(data2, options2);
    
            setInterval(function() {   
-             data.setValue(0, 1, randomIntFromInterval(0,1));
-             chart10.draw(data, options1);
-           }, 1000);
-           setInterval(function() {
-             data2.setValue(0, 1, 1 + Math.round(1950 * Math.random()));
-             chart11.draw(data2, options2);
+             if($("#chkAuto").prop("checked"))
+             {
+             
+              var turbidez = randomIntFromInterval(0,1);
+               velocidad = m*turbidez + b;
+                data.setValue(0, 1, turbidez);
+                data2.setValue(0, 1, velocidad);
+
+                chart11.draw(data, options1);
+                chart12.draw(data2, options2);
+             }
            }, 1000);
          
          //Chart 7
-         var chart12 = new google.visualization.Gauge(document.getElementById('chart_div7'));
-           var chart13 = new google.visualization.Gauge(document.getElementById('chart_div7_7'));
-   
-           chart12.draw(data, options1);
-           chart13.draw(data2, options2);
-   
-           setInterval(function() {   
-             data.setValue(0, 1, randomIntFromInterval(0,1));
-             chart12.draw(data, options1);
-           }, 1000);
-           setInterval(function() {
-             data2.setValue(0, 1, 1 + Math.round(1950 * Math.random()));
-             chart13.draw(data2, options2);
-           }, 1000);
-         
-            //Chart 8
-            var chart13 = new google.visualization.Gauge(document.getElementById('chart_div8'));
-           var chart14 = new google.visualization.Gauge(document.getElementById('chart_div8_8'));
+         var chart13 = new google.visualization.Gauge(document.getElementById('chart_div7'));
+           var chart14 = new google.visualization.Gauge(document.getElementById('chart_div7_7'));
    
            chart13.draw(data, options1);
            chart14.draw(data2, options2);
    
            setInterval(function() {   
-             data.setValue(0, 1, randomIntFromInterval(0,1));
-             chart13.draw(data, options1);
+             if($("#chkAuto").prop("checked"))
+             {
+              
+              var turbidez = randomIntFromInterval(0,1);
+               velocidad = m*turbidez + b;
+                data.setValue(0, 1, turbidez);
+                data2.setValue(0, 1, velocidad);
+
+                chart13.draw(data, options1);
+                chart14.draw(data2, options2);
+             }
            }, 1000);
-           setInterval(function() {
-             data2.setValue(0, 1, 1 + Math.round(1950 * Math.random()));
-             chart14.draw(data2, options2);
+         
+            //Chart 8
+            var chart15 = new google.visualization.Gauge(document.getElementById('chart_div8'));
+           var chart16 = new google.visualization.Gauge(document.getElementById('chart_div8_8'));
+   
+           chart15.draw(data, options1);
+           chart16.draw(data2, options2);
+   
+           setInterval(function() {   
+             if($("#chkAuto").prop("checked"))
+             {
+              
+              var turbidez = randomIntFromInterval(0,1);
+               velocidad = m*turbidez + b;
+                data.setValue(0, 1, turbidez);
+                data2.setValue(0, 1, velocidad);
+
+                chart15.draw(data, options1);
+                chart16.draw(data2, options2);
+             }
            }, 1000);
          
          
@@ -317,8 +484,15 @@ input:checked + .slider:before {
        </script>
        <script>
        function randomIntFromInterval(min, max) { // min and max included 
-        return Math.floor(Math.random() * (max - min + 1) + min);
+          //return Math.floor(Math.random() * (max - min + 1) + min);
+          return Math.random() < 0.5 ? ((1-Math.random()) * (max-min) + min) : (Math.random() * (max-min) + min);
         }
+    </script>
+    <script>
+    function toggleCheckbox(element)
+    {
+      //element.checked = !element.checked;
+    }
     </script>
     </body>
 </html>
