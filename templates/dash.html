@@ -201,36 +201,84 @@ footer{
                       <div style="background-color: lightseagreen" class="col-md-3">
                               <div id="chart_div" style="width: 500px; height: 120px;"></div>
                               <div id="chart_div_div" style="width: 500px; height: 120px;"></div>
+                              <div>
+                                <label>RPM:</label>
+                                <br>
+                                <button onclick="button1(true)" class="btnRPM btn btn-success btn-pressure pull-left">Subir RPM</button>
+                                <button onclick="button1(false)" class="btnRPM btn btn-danger btn-pressure pull-left">Bajar RPM</button>
+                              </div>
                       </div>
                       <div style="background-color: lightseagreen" class="col-md-3">
                               <div id="chart_div2" style="width: 500px; height: 120px;"></div>
                               <div id="chart_div2_2" style="width: 500px; height: 120px;"></div>
+                              <div>
+                                <label>RPM:</label>
+                                <br>
+                                <button onclick="button2(true)" class="btnRPM btn btn-success btn-pressure pull-left">Subir RPM</button>
+                                <button onclick="button2(false)" class="btnRPM btn btn-danger btn-pressure pull-left">Bajar RPM</button>
+                              </div>
                       </div>
                       <div style="background-color: lightseagreen" class="col-md-3">
                               <div id="chart_div3" style="width: 500px; height: 120px;"></div>
                               <div id="chart_div3_3" style="width: 500px; height: 120px;"></div>
+                              <div>
+                                <label>RPM:</label>
+                                <br>
+                                <button onclick="button3(true)" class="btnRPM btn btn-success btn-pressure pull-left">Subir RPM</button>
+                                <button onclick="button3(false)" class="btnRPM btn btn-danger btn-pressure pull-left">Bajar RPM</button>
+                              </div>
                       </div>
                       <div style="background-color: lightseagreen" class="col-md-3">
                               <div id="chart_div4" style="width: 500px; height: 120px;"></div>
                               <div id="chart_div4_4" style="width: 500px; height: 120px;"></div>
+                              <div>
+                                <label>RPM:</label>
+                                <br>
+                                <button onclick="button4(true)" class="btnRPM btn btn-success btn-pressure pull-left">Subir RPM</button>
+                                <button onclick="button4(false)" class="btnRPM btn btn-danger btn-pressure pull-left">Bajar RPM</button>
+                              </div>
                       </div>
                   </div>
                   <div class="row">
                       <div style="background-color:lightsalmon" class="col-md-3">
                               <div id="chart_div5" style="width: 500px; height: 120px;"></div>
                               <div id="chart_div5_5" style="width: 500px; height: 120px;"></div>
+                              <div>
+                                <label>RPM:</label>
+                                <br>
+                                <button onclick="button5(true)" class="btnRPM btn btn-success btn-pressure pull-left">Subir RPM</button>
+                                <button onclick="button5(false)" class="btnRPM btn btn-danger btn-pressure pull-left">Bajar RPM</button>
+                              </div>
                       </div>
                       <div style="background-color:lightsalmon" class="col-md-3">
                               <div id="chart_div6" style="width: 500px; height: 120px;"></div>
                               <div id="chart_div6_6" style="width: 500px; height: 120px;"></div>
+                              <div>
+                                <label>RPM:</label>
+                                <br>
+                                <button onclick="button6(true)" class="btnRPM btn btn-success btn-pressure pull-left">Subir RPM</button>
+                                <button onclick="button6(false)" class="btnRPM btn btn-danger btn-pressure pull-left">Bajar RPM</button>
+                              </div>
                       </div>
                       <div style="background-color:lightsalmon" class="col-md-3">
                               <div id="chart_div7" style="width: 500px; height: 120px;"></div>
                               <div id="chart_div7_7" style="width: 500px; height: 120px;"></div>
+                              <div>
+                                <label>RPM:</label>
+                                <br>
+                                <button onclick="button7(true)" class="btnRPM btn btn-success btn-pressure pull-left">Subir RPM</button>
+                                <button onclick="button7(false)" class="btnRPM btn btn-danger btn-pressure pull-left">Bajar RPM</button>
+                              </div>
                       </div>
                       <div style="background-color:lightsalmon" class="col-md-3">
                               <div id="chart_div8" style="width: 500px; height: 120px;"></div>
                               <div id="chart_div8_8" style="width: 500px; height: 120px;"></div>
+                              <div>
+                                <label>RPM:</label>
+                                <br>
+                                <button onclick="button8(true)" class="btnRPM btn btn-success btn-pressure pull-left">Subir RPM</button>
+                                <button onclick="button8(false)" class="btnRPM btn btn-danger btn-pressure pull-left">Bajar RPM</button>
+                              </div>
                       </div>
                   </div>
                 </div>
@@ -280,7 +328,6 @@ footer{
         </div>
       </div>    
       <!--end nav-->
-          
       <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
       <script type="text/javascript">
          google.charts.load('current', {'packages':['gauge']});
@@ -288,199 +335,361 @@ footer{
         
         var m = 1900;
         var b = 0;
+        var incremento = 50;
+        var decremento = 50;
+        $(".btnRPM").attr("disabled", true); //Default val
+        var chart, chart2, chart3, chart4, chart5, chart6, chart7, chart8, chart9, chart10, chart11, chart12, chart13, chart14, chart15, chart16;
+        var options1, options2, data, data2;
 
          function drawChart() {
    
-           var data = google.visualization.arrayToDataTable([
+           data = google.visualization.arrayToDataTable([
              ['Label', 'Value'],
              ['Turbidez', 1]
            ]);
-           var data2 = google.visualization.arrayToDataTable([
+           data2 = google.visualization.arrayToDataTable([
              ['Label', 'Value'],
              ['RPM', 2000]
            ]);
    
-           var options1 = {
+           options1 = {
              width: 400, height: 120,
              redFrom: 0.7, redTo: 1,
              yellowFrom:0.49, yellowTo: 0.69,
              minorTicks: 5, max:1
            };
-           var options2 = {
+           options2 = {
              width: 400, height: 120,
              redFrom: 1930, redTo: 1950,
              yellowFrom:1000, yellowTo: 1930,
              minorTicks: 5, max:2000
            };
    
-           var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
-           var chart2 = new google.visualization.Gauge(document.getElementById('chart_div_div'));
+           chart = new google.visualization.Gauge(document.getElementById('chart_div'));
+           chart2 = new google.visualization.Gauge(document.getElementById('chart_div_div'));
    
            chart.draw(data, options1);
            chart2.draw(data2, options2);
    
            setInterval(function() {   
-             if($("#chkAuto").prop("checked")){ 
+             if(1){ 
                var turbidez = randomIntFromInterval(0,1);
-               velocidad = m*turbidez + b;
+               if($("#chkAuto").prop("checked")) velocidad1 = m*turbidez + b;
                 data.setValue(0, 1, turbidez);
-                data2.setValue(0, 1, velocidad);
+                data2.setValue(0, 1, velocidad1);
 
-                chart.draw(data, options1);
-                chart2.draw(data2, options2);
+                
+               chart.draw(data, options1);
+                                if($("#chkAuto").prop("checked")) chart2.draw(data2, options2);
              }
            }, 1000);
 
            //Chart 2
-           var chart3 = new google.visualization.Gauge(document.getElementById('chart_div2'));
-           var chart4 = new google.visualization.Gauge(document.getElementById('chart_div2_2'));
+           chart3 = new google.visualization.Gauge(document.getElementById('chart_div2'));
+           chart4 = new google.visualization.Gauge(document.getElementById('chart_div2_2'));
    
            chart3.draw(data, options1);
            chart4.draw(data2, options2);
    
            setInterval(function() {   
-             if($("#chkAuto").prop("checked")){
+             if(1){
               
               var turbidez = randomIntFromInterval(0,1);
-               velocidad = m*turbidez + b;
+              if($("#chkAuto").prop("checked")) velocidad2 = m*turbidez + b;
                 data.setValue(0, 1, turbidez);
-                data2.setValue(0, 1, velocidad);
+                data2.setValue(0, 1, velocidad2);
 
                 chart3.draw(data, options1);
-                chart4.draw(data2, options2);
+                if($("#chkAuto").prop("checked")) chart4.draw(data2, options2);
              }
            }, 1000);
          
            //Chart 3
-           var chart5 = new google.visualization.Gauge(document.getElementById('chart_div3'));
-           var chart6 = new google.visualization.Gauge(document.getElementById('chart_div3_3'));
+           chart5 = new google.visualization.Gauge(document.getElementById('chart_div3'));
+           chart6 = new google.visualization.Gauge(document.getElementById('chart_div3_3'));
    
            chart5.draw(data, options1);
            chart6.draw(data2, options2);
    
            setInterval(function() {   
-             if($("#chkAuto").prop("checked"))
+             if(1)
              {
               
               var turbidez = randomIntFromInterval(0,1);
-               velocidad = m*turbidez + b;
+              if($("#chkAuto").prop("checked")) velocidad3 = m*turbidez + b;
                 data.setValue(0, 1, turbidez);
-                data2.setValue(0, 1, velocidad);
+                data2.setValue(0, 1, velocidad3);
 
                 chart5.draw(data, options1);
-                chart6.draw(data2, options2);
+                if($("#chkAuto").prop("checked"))                 chart6.draw(data2, options2);
              }
            }, 1000);
 
            //Chart 4
-           var chart7 = new google.visualization.Gauge(document.getElementById('chart_div4'));
-           var chart8 = new google.visualization.Gauge(document.getElementById('chart_div4_4'));
+           chart7 = new google.visualization.Gauge(document.getElementById('chart_div4'));
+           chart8 = new google.visualization.Gauge(document.getElementById('chart_div4_4'));
    
            chart7.draw(data, options1);
            chart8.draw(data2, options2);
    
            setInterval(function() {   
-             if($("#chkAuto").prop("checked"))
+             if(1)
              {
               
               var turbidez = randomIntFromInterval(0,1);
-               velocidad = m*turbidez + b;
+              if($("#chkAuto").prop("checked")) velocidad4 = m*turbidez + b;
                 data.setValue(0, 1, turbidez);
-                data2.setValue(0, 1, velocidad);
+                data2.setValue(0, 1, velocidad4);
 
                 chart7.draw(data, options1);
-                chart8.draw(data2, options2);
+                if($("#chkAuto").prop("checked"))                 chart8.draw(data2, options2);
              }
            }, 1000);
 
            //Chart 5
-           var chart9 = new google.visualization.Gauge(document.getElementById('chart_div5'));
-           var chart10 = new google.visualization.Gauge(document.getElementById('chart_div5_5'));
+           chart9 = new google.visualization.Gauge(document.getElementById('chart_div5'));
+           chart10 = new google.visualization.Gauge(document.getElementById('chart_div5_5'));
    
            chart9.draw(data, options1);
            chart10.draw(data2, options2);
    
            setInterval(function() {   
-             if($("#chkAuto").prop("checked"))
+             if(1)
              {
               
               var turbidez = randomIntFromInterval(0,1);
-               velocidad = m*turbidez + b;
+              if($("#chkAuto").prop("checked")) velocidad5 = m*turbidez + b;
                 data.setValue(0, 1, turbidez);
-                data2.setValue(0, 1, velocidad);
+                data2.setValue(0, 1, velocidad5);
 
                 chart9.draw(data, options1);
-                chart10.draw(data2, options2);
+                if($("#chkAuto").prop("checked"))                 chart10.draw(data2, options2);
              }
            }, 1000);
          
            //Chart 6
-           var chart11 = new google.visualization.Gauge(document.getElementById('chart_div6'));
-           var chart12 = new google.visualization.Gauge(document.getElementById('chart_div6_6'));
+           chart11 = new google.visualization.Gauge(document.getElementById('chart_div6'));
+           chart12 = new google.visualization.Gauge(document.getElementById('chart_div6_6'));
    
            chart11.draw(data, options1);
            chart12.draw(data2, options2);
    
            setInterval(function() {   
-             if($("#chkAuto").prop("checked"))
+             if(1)
              {
              
               var turbidez = randomIntFromInterval(0,1);
-               velocidad = m*turbidez + b;
+              if($("#chkAuto").prop("checked")) velocidad6 = m*turbidez + b;
                 data.setValue(0, 1, turbidez);
-                data2.setValue(0, 1, velocidad);
+                data2.setValue(0, 1, velocidad6);
 
                 chart11.draw(data, options1);
-                chart12.draw(data2, options2);
+                if($("#chkAuto").prop("checked"))                 chart12.draw(data2, options2);
              }
            }, 1000);
          
          //Chart 7
-         var chart13 = new google.visualization.Gauge(document.getElementById('chart_div7'));
-           var chart14 = new google.visualization.Gauge(document.getElementById('chart_div7_7'));
+         chart13 = new google.visualization.Gauge(document.getElementById('chart_div7'));
+           chart14 = new google.visualization.Gauge(document.getElementById('chart_div7_7'));
    
            chart13.draw(data, options1);
            chart14.draw(data2, options2);
    
            setInterval(function() {   
-             if($("#chkAuto").prop("checked"))
+             if(1)
              {
               
               var turbidez = randomIntFromInterval(0,1);
-               velocidad = m*turbidez + b;
+              if($("#chkAuto").prop("checked")) velocidad7 = m*turbidez + b;
                 data.setValue(0, 1, turbidez);
-                data2.setValue(0, 1, velocidad);
+                data2.setValue(0, 1, velocidad7);
 
                 chart13.draw(data, options1);
-                chart14.draw(data2, options2);
+                if($("#chkAuto").prop("checked"))                 chart14.draw(data2, options2);
              }
            }, 1000);
          
             //Chart 8
-            var chart15 = new google.visualization.Gauge(document.getElementById('chart_div8'));
-           var chart16 = new google.visualization.Gauge(document.getElementById('chart_div8_8'));
+            chart15 = new google.visualization.Gauge(document.getElementById('chart_div8'));
+           chart16 = new google.visualization.Gauge(document.getElementById('chart_div8_8'));
    
            chart15.draw(data, options1);
            chart16.draw(data2, options2);
    
            setInterval(function() {   
-             if($("#chkAuto").prop("checked"))
+             if(1)
              {
               
               var turbidez = randomIntFromInterval(0,1);
-               velocidad = m*turbidez + b;
+              if($("#chkAuto").prop("checked")) velocidad8 = m*turbidez + b;
                 data.setValue(0, 1, turbidez);
-                data2.setValue(0, 1, velocidad);
+                data2.setValue(0, 1, velocidad8);
 
                 chart15.draw(data, options1);
-                chart16.draw(data2, options2);
+                if($("#chkAuto").prop("checked"))                 chart16.draw(data2, options2);
              }
            }, 1000);
          
          
          }
+         function button1(state)
+         {
+           if(state)
+           {
+             if(velocidad1<m)
+             {
+              velocidad1+=incremento;
+             }
+           }
+           else
+           {
+             if(velocidad1>0)
+             {
+              velocidad1-=decremento;
+             }
+           }
+           data2.setValue(0, 1, velocidad1);
+           chart2.draw(data2, options2);
+         }
 
-         
+         function button2(state)
+         {
+           if(state)
+           {
+             if(velocidad2<m)
+             {
+              velocidad2+=incremento;
+             }
+           }
+           else
+           {
+             if(velocidad2>0)
+             {
+              velocidad2-=decremento;
+             }
+           }
+           data2.setValue(0, 1, velocidad2);
+           chart4.draw(data2, options2);
+         }
+
+         function button3(state)
+         {
+           if(state)
+           {
+             if(velocidad3<m)
+             {
+              velocidad3+=incremento;
+             }
+           }
+           else
+           {
+             if(velocidad3>0)
+             {
+              velocidad3-=decremento;
+             }
+           }
+           data2.setValue(0, 1, velocidad3);
+           chart6.draw(data2, options2);
+         }
+         function button4(state)
+         {
+           if(state)
+           {
+             if(velocidad4<m)
+             {
+              velocidad4+=incremento;
+             }
+           }
+           else
+           {
+             if(velocidad4>0)
+             {
+              velocidad4-=decremento;
+             }
+           }
+           data2.setValue(0, 1, velocidad4);
+           chart8.draw(data2, options2);
+         }
+         function button5(state)
+         {
+           if(state)
+           {
+             if(velocidad5<m)
+             {
+              velocidad5+=incremento;
+             }
+           }
+           else
+           {
+             if(velocidad5>0)
+             {
+              velocidad5-=decremento;
+             }
+           }
+           data2.setValue(0, 1, velocidad5);
+           chart10.draw(data2, options2);
+         }
+         function button6(state)
+         {
+           if(state)
+           {
+             if(velocidad6<m)
+             {
+              velocidad6+=incremento;
+             }
+           }
+           else
+           {
+             if(velocidad6>0)
+             {
+              velocidad6-=decremento;
+             }
+           }
+           data2.setValue(0, 1, velocidad6);
+           chart12.draw(data2, options2);
+         }
+
+         function button7(state)
+         {
+           if(state)
+           {
+             if(velocidad7<m)
+             {
+              velocidad7+=incremento;
+             }
+           }
+           else
+           {
+             if(velocidad7>0)
+             {
+              velocidad7-=decremento;
+             }
+           }
+           data2.setValue(0, 1, velocidad7);
+           chart14.draw(data2, options2);
+         }
+
+         function button8(state)
+         {
+           if(state)
+           {
+             if(velocidad8<m)
+             {
+              velocidad8+=incremento;
+             }
+           }
+           else
+           {
+             if(velocidad8>0)
+             {
+              velocidad8-=decremento;
+             }
+           }
+           data2.setValue(0, 1, velocidad8);
+           chart16.draw(data2, options2);
+         }
+
+
        </script>
        <script>
        function randomIntFromInterval(min, max) { // min and max included 
@@ -492,6 +701,7 @@ footer{
     function toggleCheckbox(element)
     {
       //element.checked = !element.checked;
+      $(".btnRPM").attr("disabled", element.checked);
     }
     </script>
     </body>
