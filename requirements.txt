@@ -13,7 +13,7 @@ Jinja2==2.10
 kiwisolver==1.0.1
 MarkupSafe==1.1.0
 matplotlib==2.2.3
-numpy==1.16.1
+numpy==1.22.0
 opencv-python==4.0.0.21
 pandas==0.24.1
 pipreqs==0.4.9
